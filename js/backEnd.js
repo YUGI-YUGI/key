@@ -48,9 +48,14 @@ window.addEventListener("load",function(){
 	});
 	
 	
-	document.getElementById("playArea").addEventListener('game_pause',
+	document.getElementById("playArea").addEventListener('game_stop',
 			function(e){
 		 clearInterval(interVal);
+		 var container=document.getElementById("container");
+		 while (container.firstChild) {
+			 container.removeChild(container.firstChild);
+			}
+		 current={};
 
 			});	
 });

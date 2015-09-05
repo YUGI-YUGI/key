@@ -17,13 +17,7 @@
 
 		
 		document.getElementById("btn_start").addEventListener('click',
-				startGame);
-		
-		
-		
-		
-		
-		
+				startGame);		
 
 	});
 	
@@ -42,9 +36,9 @@
 			var event = new Event('game_start');
 			event.src = e;
 			document.getElementById("playArea").dispatchEvent(event);
-			e.srcElement.text = "Pause"
+			e.srcElement.text = "Stop"
 		} else {
-			var event = new Event('game_pause');
+			var event = new Event('game_stop');
 			event.src = e;
 			document.getElementById("playArea").dispatchEvent(event);
 			e.srcElement.text = "Start"

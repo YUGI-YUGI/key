@@ -35,7 +35,7 @@
 	
 	display:block;
 	margin:auto;
-	width:40px;
+	width:80px;
 }
 
 .drop {
@@ -48,14 +48,14 @@
    border-radius: 50% 1px 50% 50%;
   -webkit-transform: rotate(-45deg);  
   -webkit-animation: drip 5s linear;
-  width:20px;
-  height:20px;
-   top:130%;
+  width:30px;
+  height:30px;
 }
 .drop span{
 	  -webkit-transform: rotate(45deg);  
 	  display: block;
     text-align: center;
+    font-size:24px;
 }
 
 .ele .drop:nth-child(2) {  
@@ -133,7 +133,7 @@
   
   50% {
    
-    top: 30%;
+    top: 0%;
   }
   
    

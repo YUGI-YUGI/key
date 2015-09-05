@@ -11,7 +11,7 @@ this file only contain css for key board ui
 
 .keyboard{
 	width:100%;
-	display: block;
+	display: none;
 	    bottom: 0px;
     position: absolute;
 
