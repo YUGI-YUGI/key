@@ -39,82 +39,12 @@
 				}else{
 					
 				}
-				document.getElementById("keyboard").dispatchEvent(event);
+				document.getElementById("playArea").dispatchEvent(event);
 				
 				},false);
 		}
 	}
 	
-	function playArea(){
-	document.getElementById("container").addEventListener("click",function() {	  
-			var playArea=  document.getElementById("container");
-		  playArea.appendChild(_helpCreateEl());
-		});
-	}
-	var po=20;
-
-function _helpCreateEl(){
-//	
-//	<div class="drop">1</div>
-//	<!--       <div class="drop">2</div> -->
-//
-//	      <div class="puddle">
-//	        <div class="sink"></div>
-//	        <div class="ripple"></div>
-//	        <div class="ripple"></div>
-//	      
-//	        <div class="ripple"></div>
-//	        <div class="sink"></div>
-//	        <div class="ripple"></div>
-//	        
-//	      </div>
-	
-var ele = document.createElement("div");
-ele.setAttribute("class","ele"); 
-var drop = document.createElement("div");
-drop.setAttribute("class","drop"); 
-var text = document.createElement("span");
-text.innerHTML="h"
-
-var puddle=document.createElement("div");
-puddle.setAttribute("class","puddle"); 
-var sink1=document.createElement("div");
-sink1.setAttribute("class","sink"); 
-var sink2=document.createElement("div");
-sink2.setAttribute("class","sink"); 
-var ripple1=document.createElement("div");
-ripple1.setAttribute("class","ripple");
-var ripple2=document.createElement("div");
-ripple2.setAttribute("class","ripple");
-var ripple3=document.createElement("div");
-ripple3.setAttribute("class","ripple");
-var ripple4=document.createElement("div");
-ripple4.setAttribute("class","ripple");
-puddle.appendChild(sink1);
-puddle.appendChild(ripple1);
-puddle.appendChild(ripple2);
-puddle.appendChild(ripple3);
-puddle.appendChild(sink2);
-puddle.appendChild(ripple3);
-
-drop.appendChild(text);
-ele.appendChild(drop);
-ele.appendChild(puddle);
-drop.style.marginLeft = po+"%"
-
-sink1.style.marginLeft = po+"%" 
-sink2.style.marginLeft = po+"%" 
-ripple1.style.marginLeft = po+"%" 
-ripple2.style.marginLeft = po+"%" 
-ripple3.style.marginLeft = po+"%" 
-ripple4.style.marginLeft = po+"%" 
-
-po=po+3;
-if(po>90){
-	po=10;
-}
- return ele;
-}
 
 	
 	
@@ -132,12 +62,7 @@ if(po>90){
 		// atch key event.
 		attachingKEYevent()
 		//listing c_KeyPressed event
-		var keyBoard = document.getElementById("keyboard");
-		keyBoard.addEventListener('c_KeyPressed',function(e){console.log(e.src)},false);
 		
-		
-		
-		playArea();
 		
 	}
 	

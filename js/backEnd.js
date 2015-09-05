@@ -38,10 +38,21 @@ var interVal;
 var that=this;
 
 window.addEventListener("load",function(){
-	interVal=setInterval(function(){ 	
-		addElent(that.generateKey())
-	}, aTimer);
 	
+	document.getElementById("playArea").addEventListener('game_start',
+	function(e){
+		interVal=setInterval(function(){ 	
+			addElent(that.generateKey())
+		}, aTimer);
+
+	});
+	
+	
+	document.getElementById("playArea").addEventListener('game_pause',
+			function(e){
+		 clearInterval(interVal);
+
+			});	
 });
 
 function addElent(e){
@@ -50,28 +61,17 @@ function addElent(e){
 	console.log("element added event fired ");
 	var event = new Event('ele_added');
 	event.src=e;
-	document.dispatchEvent(event);
+	document.getElementById("playArea").dispatchEvent(event);
 	setTimeout(function(){
 		var event = new Event('ele_removed');
 		event.src=e;
-		document.dispatchEvent(event);
-		console.log("remove event trigger "+keys[e]);
+		document.getElementById("playArea").dispatchEvent(event);
+		//console.log("remove event trigger "+keys[e]);
 		
 	},rTimer); 
 }
 
 
-
-
-
-function removeElent(e){
-	if(e.src)
-		delete current[e.src];
-	console.log("element remove "+keys[e.src]);
-}
-
-
-document.addEventListener('ele_removed',removeElent);
 
 that.generateKey = function(){	
 	var getKey=Math.floor(Math.random() * 26) + 1 ;

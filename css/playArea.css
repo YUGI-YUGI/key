@@ -1,4 +1,14 @@
-
+#btn_start{
+    text-decoration: none;
+    width: 60px;
+    display: inline-block;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 14px;
+    background-color: red;
+    border-radius: 38%;
+}
 
 .footer {
   position: absolute;
