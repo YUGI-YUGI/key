@@ -1,6 +1,5 @@
 {
 	
-	
 var keys={};
 keys[1]= "a";
 keys[2]="b";
@@ -51,6 +50,7 @@ window.addEventListener("load",function(){
 	document.getElementById("playArea").addEventListener('game_stop',
 			function(e){
 		 clearInterval(interVal);
+		 clearInterval(timer1);
 		 var container=document.getElementById("container");
 		 while (container.firstChild) {
 			 container.removeChild(container.firstChild);
@@ -70,6 +70,7 @@ function addElent(e){
 	setTimeout(function(){
 		var event = new Event('ele_removed');
 		event.src=e;
+		event.typeOfEvent="timeOut";
 		document.getElementById("playArea").dispatchEvent(event);
 		//console.log("remove event trigger "+keys[e]);
 		

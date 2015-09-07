@@ -39,6 +39,7 @@
 				}else{
 					
 				}
+				
 				document.getElementById("playArea").dispatchEvent(event);
 				
 				},false);
@@ -57,10 +58,14 @@
                 if(e.which){ 				
             		keynum = e.which;
                  }
+            if(keynum === 32){
+            	startGame(e);
+            }else{
 		var event = new Event('c_KeyPressed');
 		event.src={};
 		event.src.val= String.fromCharCode(keynum).toLowerCase();
 		document.getElementById("playArea").dispatchEvent(event);
+            }
 	}
 	
 	function loadingEvent() {

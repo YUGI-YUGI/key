@@ -23,25 +23,53 @@
 	
 	
 	function removeHtml(e){
+		
+		if(e.type == "c_KeyPressed"){
+			yourScore=document.getElementById("yourScore").innerHTML;
+			
+				document.getElementById("yourScore").innerHTML=parseInt(yourScore)+1
+			
+		}
 		if(document.getElementById("ele_" + e.src.val))
 		       document.getElementById("ele_" + e.src.val).remove();
 	}
 	
 	
+	var timer1;
+	function timer(){
+		timer1 =setInterval(function(){ 	
+			var time=document.getElementById("timer").innerHTML;
+			var second=parseInt(time.split(":")[1]);
+			var min=parseInt(time.split(":")[0]);
+			if(second == 60 || second > 60){
+				min =min+1;
+				second=second-59;
+			}else{
+				second++;
+			}
+			document.getElementById("timer").innerHTML=min+":"+second;
+		}, 1000);
+	}
+		
+	
 	
 	///stop and pause events
 	function startGame(e) {
 
-		if (e.srcElement.text == "Start") {
+		document.getElementsByClassName("gameSetting")[0].classList.toggle("fadeOut");
+		document.getElementsByClassName("t_model")[0].classList.toggle("none");
+		if (document.getElementById("btn_start").text == "Start") {
 			var event = new Event('game_start');
 			event.src = e;
 			document.getElementById("playArea").dispatchEvent(event);
-			e.srcElement.text = "Stop"
+			document.getElementById("btn_start").text = "Stop";
+			timer();
+				
 		} else {
 			var event = new Event('game_stop');
 			event.src = e;
 			document.getElementById("playArea").dispatchEvent(event);
-			e.srcElement.text = "Start"
+			document.getElementById("btn_start").text = "Start";
 		}
 
 	}
@@ -49,6 +77,15 @@
 	var po = 20;
 	
 	function removeHtmlElent(e) {
+		if(e.type == "ele_removed"){
+			curentScore=document.getElementById("remaingLife").innerHTML;
+			if(parseInt(curentScore)-1){
+				document.getElementById("remaingLife").innerHTML=	parseInt(curentScore) - 1
+				
+			}else{
+				startGame();
+			}
+		}
 		if(document.getElementById("ele_" + current[e.src]))
 			document.getElementById("ele_" + current[e.src]).remove();
 		if (e.src)
